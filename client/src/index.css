@@ -21,3 +21,8 @@
 .marquee-reverse {
   animation-direction: reverse;
 }
+
+
+.reset-tw, .reset-tw *{
+  all: revert !important
+}
