@@ -1,0 +1,14 @@
+{
+  "name": "ai-forge",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full stack AI SaaS platform built on the PERN stack",
+  "scripts": {
+    "install:all": "npm --prefix server install && npm --prefix client install",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "build": "npm --prefix client run build",
+    "lint": "npm --prefix client run lint",
+    "start": "npm --prefix server start"
+  }
+}

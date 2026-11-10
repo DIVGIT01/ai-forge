@@ -1,16 +1,27 @@
-import { React, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { assets } from '../assets/assets'
 import { Outlet } from 'react-router-dom'
 import Sidebar from '../components/Sidebar'
 import { Menu, X } from 'lucide-react'
 import { SignIn, useUser } from '@clerk/clerk-react'
+import { Loader2 } from 'lucide-react'
 
 const Layout = () => {
 
   const navigate = useNavigate();
   const [sidebar, setSidebar] = useState(false);
-  const { user } = useUser();
+  const { isLoaded, user } = useUser();
+
+  // Clerk resolves the session asynchronously. Without this the sign-in form
+  // flashes for a moment on every load for users who are already signed in.
+  if (!isLoaded) {
+    return (
+      <div className='flex items-center justify-center h-screen'>
+        <Loader2 className='w-10 h-10 text-primary animate-spin' />
+      </div>
+    )
+  }
 
   return user ? (
     <div className="flex flex-col items-start justify-start h-screen">
@@ -32,7 +43,7 @@ const Layout = () => {
     </div>
   ) : (
     <div className='flex items-center justify-center h-screen'>
-      <SignIn routing="hash" signUpUrl="/sign-up" />
+      <SignIn routing="hash" />
     </div>
   );
 };

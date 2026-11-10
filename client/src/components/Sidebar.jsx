@@ -1,4 +1,3 @@
-import React from 'react'
 import { useUser, useClerk, Protect } from '@clerk/clerk-react'
 import { Eraser, FileText, Hash, House, Image, LogOut, Scissors, SquarePen, Users } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
