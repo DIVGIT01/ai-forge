@@ -42,3 +42,6 @@ const Community = () => {
 }
 
 export default Community
+
+
+// ----------- UI COMPLETED ------------------
